@@ -1,0 +1,23 @@
+// Header.scss
+
+.header {
+  display: flex;
+
+  justify-content: center;
+
+  width: 100%;
+
+  border: 1px solid lightblue;
+
+  padding: 1rem;
+
+  &__title {
+    margin-right: auto;
+  }
+
+  &__nav {
+    &-list {
+      display: flex;
+    }
+  }
+}

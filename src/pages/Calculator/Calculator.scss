@@ -1,0 +1,17 @@
+// Calculator.scss
+
+.calc {
+    display: flex;
+    justify-content: center;
+
+    width: 85%;
+
+    margin: 0 auto;
+
+  &__input {
+    width: 45%;
+    height: 3rem;
+
+    margin: 1rem auto;
+  }
+}
