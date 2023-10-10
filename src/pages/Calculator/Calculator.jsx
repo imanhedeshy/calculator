@@ -6,6 +6,7 @@ import "./Calculator.scss";
 export default function Calculator() {
   const [display, setDisplay] = useState(0);
   const [buffer, setBuffer] = useState(0);
+  const [operator, setOperator] = useState("");
 
   const handleNumClick = (event) => {
     event.preventDefault();
@@ -15,17 +16,27 @@ export default function Calculator() {
     );
   };
 
-  const handleDecimal = () => {
+  const handleDecimal = (event) => {
+    event.preventDefault();
+
     setDisplay((currentDisplay) => currentDisplay + ".");
   };
 
   const clear = () => setDisplay(0);
 
   const handleOperator = (event) => {
-    console.log(event.target.value);
+    event.preventDefault();
+
+    setOperator(event.target.value);
+    setBuffer(parseInt(display));
+    setDisplay(0);
   };
 
-  const handleEqual = (event) => {};
+  const handleEqual = (event) => {
+    event.preventDefault();
+
+    setDisplay(buffer);
+  };
 
   return (
     <section className="calc">
@@ -55,7 +66,7 @@ export default function Calculator() {
             ))}
             <button
               className="calc__nums-button calc__nums-button--dot"
-              onClick={handleDecimal}
+              onClick={(e) => handleDecimal(e)}
               value={"."}
             >
               .
