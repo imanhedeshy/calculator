@@ -7,6 +7,7 @@ export default function Calculator() {
   const [display, setDisplay] = useState(0);
   const [buffer, setBuffer] = useState(0);
   const [operator, setOperator] = useState("");
+  const [result, setResult] = useState(0);
 
   const handleNumClick = (event) => {
     event.preventDefault();
@@ -29,14 +30,26 @@ export default function Calculator() {
 
     setOperator(event.target.value);
     setBuffer(parseInt(display));
+
+    calculate(event.target.value);
+
     setDisplay(0);
   };
 
   const handleEqual = (event) => {
     event.preventDefault();
 
-    setDisplay(buffer);
+    calculate(event.target.value);
+
+    setDisplay(result);
   };
+
+  const calculate = (operator) => {
+    switch (operator) {
+      case "-":
+        
+    }
+  }
 
   return (
     <section className="calc">
