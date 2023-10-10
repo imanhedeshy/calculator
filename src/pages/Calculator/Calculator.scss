@@ -1,17 +1,144 @@
 // Calculator.scss
 
 .calc {
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+
+  width: 85%;
+
+  margin: auto;
+
+  &__container {
     display: flex;
+    flex-direction: column;
+
+    align-items: center;
     justify-content: center;
 
-    width: 85%;
+    gap: 0.5rem;
+    padding: 0.5rem;
 
-    margin: 0 auto;
+    width: 65%;
+
+    border: 1px solid lightpink;
+    border-radius: 0.5rem;
+  }
+
+  &__clear {
+    position: absolute;
+
+    top: 1.3rem;
+    left: calc(18.5% + 1rem);
+
+    z-index: 10;
+
+    background-color: white;
+    color: darkred;
+
+    outline: none;
+    border: none;
+
+    font-size: 3rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
 
   &__input {
-    width: 45%;
-    height: 3rem;
+    width: 100%;
+    height: 5rem;
 
-    margin: 1rem auto;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    font-size: 2rem;
+
+    text-align: right;
+
+    border-radius: 0.5rem;
+
+    &:hover {
+      cursor: inherit;
+    }
+  }
+
+  &__keypad {
+    display: flex;
+
+    padding: 0.5rem 0;
+    justify-content: center;
+
+    width: 100%;
+    height: 24.5rem;
+
+    border: 1px solid lightgrey;
+    border-radius: 0.5rem;
+  }
+
+  &__nums,
+  &__operators {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-content: flex-start;
+
+    gap: 1rem;
+
+    &-button {
+      width: 5rem;
+      height: 5rem;
+
+      border-radius: 0.25rem;
+
+      font-size: 1.5rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:nth-child(10) {
+        order: 2;
+      }
+
+      &--dot {
+        width: 11rem;
+      }
+
+      &--multiply,
+      &--add,
+      &--equal {
+        height: 11rem;
+      }
+
+      &--equal {
+        order: 2;
+      }
+    }
+  }
+
+  &__nums {
+    flex-direction: row-reverse;
+
+    flex: 1;
+  }
+
+  &__operators {
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    width: 40%;
+
+    > * {
+      background-color: linen;
+    }
   }
 }

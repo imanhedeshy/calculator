@@ -12,7 +12,7 @@ import Calculator from "./pages/Calculator/Calculator";
 
 export default function App() {
   return (
-    <div className="app">
+    <main className="app">
       <Header />
       <Router>
         <Routes>
@@ -20,6 +20,6 @@ export default function App() {
         </Routes>
       </Router>
       <Footer />
-    </div>
+    </main>
   );
 }
