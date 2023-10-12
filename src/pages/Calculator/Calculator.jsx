@@ -31,25 +31,40 @@ export default function Calculator() {
     setOperator(event.target.value);
     setBuffer(parseInt(display));
 
-    calculate(event.target.value);
+    setBuffer(calculate(buffer, display, operator));
 
     setDisplay(0);
   };
 
   const handleEqual = (event) => {
     event.preventDefault();
-
-    calculate(event.target.value);
+    console.log(buffer);
+    console.log(result);
+    console.log(calculate(buffer, display, operator));
+    console.log(setResult(calculate(buffer, display, operator)));
+    console.log(result);
 
     setDisplay(result);
   };
 
-  const calculate = (operator) => {
+  const calculate = (a, b, operator) => {
     switch (operator) {
       case "-":
-        
+        return a - b;
+      case "+":
+        return a + b;
+      case "/":
+        if (!b) {
+          throw new Error("Cannot divide by zero!");
+        } else {
+          return a / b;
+        }
+      case "*":
+        return a * b;
+      default:
+        throw new Error("Unknown operator");
     }
-  }
+  };
 
   return (
     <section className="calc">
@@ -96,6 +111,7 @@ export default function Calculator() {
             <button
               className="calc__operators-button"
               onClick={(e) => handleOperator(e)}
+              value={"/"}
             >
               /
             </button>
